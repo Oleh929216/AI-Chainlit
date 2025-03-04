@@ -13,10 +13,10 @@ export default function AuthCallback() {
   }, []);
 
   useEffect(() => {
-    if (user) {
+    if (user) { 
       navigate('/');
     }
-  }, [user]);
+  }, [user]); 
 
   return null;
 }
