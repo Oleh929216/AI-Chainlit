@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-
+   
 import { useLayoutMaxWidth } from '@/hooks/useLayoutMaxWidth';
 
 import { userEnvState } from '@/state/user';
@@ -23,21 +23,21 @@ const Env = () => {
   const { config } = useConfig();
   const [userEnv, setUserEnv] = useRecoilState(userEnvState);
   const layoutMaxWidth = useLayoutMaxWidth();
-  const { t } = useTranslation();
+  const { t } = useTranslation();   
   const requiredKeys = config?.userEnv || [];
-
+  
   // Create initial values object
   const initialValues: Record<string, string> = {};
   requiredKeys.forEach((key) => {
     initialValues[key] = userEnv[key] || '';
   });
-
+   
   // Create dynamic Zod schema based on required keys
   const schemaObject: Record<string, z.ZodString> = {};
-  requiredKeys.forEach((key) => {
+  requiredKeys.forEach((key) => {   
     schemaObject[key] = z.string().min(1, { message: 'Required' });
   });
-  const schema = z.object(schemaObject);
+  const schema = z.object(schemaObject);   
 
   type FormValues = z.infer<typeof schema>;
 

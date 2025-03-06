@@ -12,7 +12,7 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
 import { userEnvState } from 'state/user';
 
-type Props = {
+type Props = { 
   children: JSX.Element;
 };
 
